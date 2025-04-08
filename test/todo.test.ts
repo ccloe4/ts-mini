@@ -30,6 +30,7 @@ describe("🧪 Todo 단위 테스트", () => {
   });
 
   test("삭제 처리가 되어야 한다", () => {
+    resetTodos();
     const todo = addTodo("삭제 테스트");
     const success = deleteTodo(todo.id);
     expect(success).toBe(true);
