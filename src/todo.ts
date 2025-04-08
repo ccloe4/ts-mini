@@ -29,7 +29,6 @@ export function completeTodo(id: number): boolean {
 
 export function deleteTodo(id: number): boolean {
   const before = todos.length;
-  // todos = todos.filter((t) => t.id !== id);
-  todos = todos.filter((t) => t.id === id);
+  todos = todos.filter((t) => t.id !== id);
   return todos.length < before;
 }
