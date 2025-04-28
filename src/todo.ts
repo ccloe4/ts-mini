@@ -33,7 +33,7 @@ export function deleteTodo(id: number): boolean {
   return todos.length < before;
 }
 
-// ❗ 버그: "완전히 같은" 이름만 찾게 만듦 (포함 검색이 아니라 완전 일치 검색)
+// ❗ 버그 수정: 포함 검색
 export function findTodoByTask(task: string): Todo[] {
-  return todos.filter((t) => t.task === task);  // ❌ "포함"이 아니라 "일치"만 찾음
+  return todos.filter((t) => t.task.includes(task));  // 포함을 찾도록 수정
 }

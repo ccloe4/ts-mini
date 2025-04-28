@@ -3,7 +3,8 @@ import {
   completeTodo,
   deleteTodo,
   listTodos,
-  resetTodos
+  resetTodos,
+  findTodoByTask
 } from '../src/todo.js';
 
 describe("🧪 Todo 단위 테스트", () => {
@@ -40,4 +41,16 @@ describe("🧪 Todo 단위 테스트", () => {
   test("없는 ID를 삭제하면 false 반환", () => {
     expect(deleteTodo(999)).toBe(false);
   });
+
+  test("할 일 이름에 특정 단어가 포함된 항목을 검색할 수 있어야 한다", () => {
+    resetTodos();
+    addTodo("코딩 공부");
+    addTodo("운동하기");
+    addTodo("코딩 복습하기");
+  
+    const results = findTodoByTask("코딩");  // ❗ "코딩"이라는 단어가 포함된 항목을 찾아야 함
+  
+    expect(results).toHaveLength(2);  // "코딩 공부", "코딩 복습하기" 두 개여야 함
+  });
+  
 });
